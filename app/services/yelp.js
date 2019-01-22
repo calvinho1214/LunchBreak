@@ -3,7 +3,7 @@ import axios from 'axios';
 const api = axios.create({
 	baseURL: 'https://api.yelp.com/v3',
 	headers: {
-		Authorization: `Bearer ${}`
+		Authorization: `Bearer ${''}`
 	}
 });
 
@@ -21,7 +21,8 @@ export const getRestaurants = (userLocation, filter = {}) => {
 			res.data.businesses.map(business => {
 				return {
 					name: business.name,
-					coords: business.coordinates
+                    coords: business.coordinates,
+                    address: business.location.address1
 				};
 			})
 		)

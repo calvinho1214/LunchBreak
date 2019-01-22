@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { MapView } from 'expo';
 import get from 'lodash/get';
+import { Marker } from 'react-native-maps'
 
 const deltas = {
 	latitudeDelta: 0.0422,
@@ -9,16 +10,16 @@ const deltas = {
 };
 
 const initialRegion = {
-	latitude: 37.321996988,
-	longitude: -122.0325472123455
+	latitude: 40.705170,
+	longitude: -74.009145
 };
 
-const Marker = MapView.Marker;
+// const Marker = MapView.Marker;
 
 export default class Map extends Component {
 	renderMarkers() {
 		return this.props.places.map((place, i) => (
-			<Marker key={i} title={place.name} coordinate={place.coords}>
+			<Marker key={i} title={place.name} coordinate={place.coords} description={ place.address}>
             </Marker>
 		));
 	}
@@ -56,6 +57,6 @@ export default class Map extends Component {
 const styles = StyleSheet.create({
 	container: {
 		width: '100%',
-		height: '80%'
+		height: '70%'
 	}
 });

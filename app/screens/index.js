@@ -1,2 +1,1 @@
-
 export {MapScreen} from './MapScreen'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TextInput } from 'react-native';
 import { Location, Permissions } from 'expo';
-import { Button } from 'react-native-elements';
+import { Button, CheckBox } from 'react-native-elements';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
 
@@ -91,6 +91,10 @@ class MapScreen extends Component {
 		return (
 			<View style={{ flex: 7 }}>
 				<Map location={location} places={restaurants} />
+				<CheckBox title='click to host a meeting!'
+				checkedIcon='dot-circle-o'
+  				uncheckedIcon='circle-o'
+				  checked={this.state.checked}/>
 				<View style={styles.filters}>{this.renderFilterButtons()}</View>
 			</View>
 		);
